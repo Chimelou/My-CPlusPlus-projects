@@ -1,0 +1,77 @@
+// ConsoleApplication2.cpp : Defines the entry point for the console application.
+//
+
+//random shit to make the program works
+#pragma once
+#include "targetver.h"
+#include <stdio.h>
+#include <tchar.h>
+#include "stdafx.h"
+#include <iostream>
+//Randomiser (not used in this program)
+#include <cstdlib>
+//Time (not used in this program
+#include <ctime>
+//Used for user input
+#include <string>
+//Little trick so I don't have to write std::cout or std::cin etc...All the time
+using namespace std;
+
+
+//Define x which will be used as the base integer for the conversion
+int x;
+
+
+//Conversion from feets to meters
+void conversionToMeters(int x = 1){
+	cout << "This is about " << x*0.3048 << " meters." << endl;
+}
+
+
+//Conversion from meters to feets
+void conversionToFeet(int x = 1) {
+	cout << "This is about " << x*3.28084 << " feets" << endl;
+}
+
+
+int main()
+{
+	//Define the string that will store the answer of user if he wants to convert feets to meters or meters to feets
+	string question;
+
+	//Define the interger that will store the feets/meters the user wants to calculate
+	int input;
+
+	cout << "Do you want to convert feets to meters or meters to feets ?\n" << endl;
+	cout << "If you want feets to meters enter FtM(case sensitive)" << endl;
+	cout << "If you want meters to feets enter MtF(case sensitive" << endl;
+
+	//Store the answer
+	cin >> question;
+
+	cout << "How far is it ?";
+
+	//Store the other answer
+	cin >> input;
+
+
+	//If the answer is FtM the program will call the function that converts feets to meters
+	if (question == "FtM") {
+		conversionToMeters(input);
+	}
+
+
+	//If the answer is MtF the program will call the function that converts meters to feets
+	else if (question == "MtF") {
+		conversionToFeet(input);
+	}
+
+
+	//If the answer is anything else, it will tell the user that the input was wrong
+	else {
+		cout << "Looks like you wrote an invalid input or that you did not type it correctly !";
+	}
+
+
+	return 0;
+}
